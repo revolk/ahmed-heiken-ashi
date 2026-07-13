@@ -1,0 +1,110 @@
+.trade-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+}
+
+.trade-panel--empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: var(--space-5) var(--space-3);
+}
+.trade-panel__hint {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.trade-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border-hairline-soft);
+}
+
+.trade-panel__direction {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+}
+.trade-panel--buy .trade-panel__direction {
+  color: var(--buy-green);
+}
+.trade-panel--sell .trade-panel__direction {
+  color: var(--sell-red);
+}
+
+.trade-panel__status {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg-panel-raised);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.trade-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.trade-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+.trade-field--active {
+  background: rgba(201, 169, 97, 0.08);
+  outline: 1px solid var(--gold-dim);
+}
+
+.trade-field__label {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.trade-field__value {
+  font-size: 16px;
+  color: var(--text-primary);
+}
+.trade-field__value--sell {
+  color: var(--sell-red);
+}
+.trade-field__value--buy {
+  color: var(--buy-green);
+}
+.trade-field__value--highlight {
+  color: var(--gold-bright);
+}
+
+.trade-panel__points {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-hairline-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.trade-panel__points strong {
+  font-family: var(--font-mono);
+  font-size: 20px;
+}
+.trade-panel__points .positive {
+  color: var(--buy-green);
+}
+.trade-panel__points .negative {
+  color: var(--sell-red);
+}

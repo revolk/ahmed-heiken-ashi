@@ -1,0 +1,89 @@
+/**
+ * signalBadge.css
+ * حركة "الختم": يدخل بضغطة سريعة (scale + slight rotate) زي ختم حقيقي بينزل
+ * على ورقة، بدل انزلاق toast تقليدي. الحركة كلها < 400ms عشان تحس بالفورية
+ * (بند 11: هدف ظهور الإشارة في 0-1 ثانية).
+ */
+
+.stamp-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 6px;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  background: var(--bg-panel-raised, #1a1f2b);
+  border: 1.5px solid;
+  animation: stamp-in 320ms cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.6);
+}
+
+.stamp-badge__ring {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.stamp-badge--buy {
+  color: #4ade80;
+  border-color: #1f4a34;
+}
+.stamp-badge--buy .stamp-badge__ring {
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+}
+
+.stamp-badge--sell {
+  color: #f0533d;
+  border-color: #4a241f;
+}
+.stamp-badge--sell .stamp-badge__ring {
+  background: #f0533d;
+  box-shadow: 0 0 8px #f0533d;
+}
+
+.stamp-badge--profit {
+  color: #c9a961;
+  border-color: #8a7440;
+}
+.stamp-badge--profit .stamp-badge__ring {
+  background: #c9a961;
+  box-shadow: 0 0 8px #c9a961;
+}
+
+.stamp-badge--loss {
+  color: #8b92a3;
+  border-color: #262c3a;
+}
+.stamp-badge--loss .stamp-badge__ring {
+  background: #8b92a3;
+}
+
+.stamp-badge--neutral {
+  color: #f5b942;
+  border-color: #6b5420;
+}
+.stamp-badge--neutral .stamp-badge__ring {
+  background: #f5b942;
+  box-shadow: 0 0 8px #f5b942;
+}
+
+@keyframes stamp-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.15) rotate(-2deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.97) rotate(0.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}

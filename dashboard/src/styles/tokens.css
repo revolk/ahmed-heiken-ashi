@@ -1,0 +1,70 @@
+/**
+ * styles/tokens.css
+ *
+ * لوحة الألوان مبنية على الذهب نفسه (السلعة اللي بنتتبعها) بدل أي لون
+ * زخرفي عشوائي: خلفية شبه سوداء بتوحي بشاشة تداول ليلية، وذهب عتيق
+ * (مش دهبي فاقع) كلون تمييز أساسي، مع أخضر/أحمر مكتومين للربح والخسارة
+ * عشان مايتصادموش بصريًا مع الذهب نفسه.
+ *
+ * الخط:
+ * - Fraunces (serif بشخصية) للعناوين والأرقام الكبيرة - إحساس "أصالة/قيمة" يناسب الذهب
+ * - Inter للـ UI العام (تسميات، أزرار)
+ * - IBM Plex Mono لكل الأسعار والأرقام - محاذاة ثابتة إلزامية لقراءة أسعار سريعة بدقة
+ */
+
+:root {
+  /* ---------- الألوان ---------- */
+  --bg-void: #0a0d12;
+  --bg-panel: #12161f;
+  --bg-panel-raised: #1a1f2b;
+  --border-hairline: #262c3a;
+  --border-hairline-soft: #1c212c;
+
+  --text-primary: #ece8dc;
+  --text-muted: #8b92a3;
+  --text-dim: #565d6e;
+
+  --gold: #c9a961;
+  --gold-bright: #e8c878;
+  --gold-dim: #8a7440;
+
+  --buy-green: #4ade80;
+  --buy-green-dim: #1f4a34;
+  --sell-red: #f0533d;
+  --sell-red-dim: #4a241f;
+  --amber-be: #f5b942; /* Break Even - مختلف عن الذهب عشان مايتلخبطش بصريًا مع الـ accent الأساسي */
+
+  /* ---------- الخطوط ---------- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-ui: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  /* ---------- المقاييس ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* حماية أساسية لتفضيلات الحركة المخفّضة */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
