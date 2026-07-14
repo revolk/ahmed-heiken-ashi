@@ -15,7 +15,7 @@
 const { TelegramClient } = require('telegram');
 const { StringSession } = require('telegram/sessions');
 const { NewMessage } = require('telegram/events');
-const { EditedMessage } = require('telegram/events');
+const { EditedMessage } = require('telegram/events/EditedMessage');
 
 class TelegramBridge {
   /**
@@ -81,9 +81,6 @@ class TelegramBridge {
       });
     }, new EditedMessage({ chats: this.channels }));
 
-    this.client.addEventHandler(() => {
-      this.onLog('⚠️ انقطع الاتصال بتليجرام - جاري إعادة المحاولة تلقائيًا');
-    }, { event: 'disconnected' }); // ملحوظة: اسم الحدث الدقيق يُضبط أثناء التشغيل الفعلي على السيرفر
   }
 
   /**
