@@ -1,3 +1,11 @@
+/**
+ * index.js
+ * نقطة التشغيل الرئيسية للمشروع بالكامل. بتجمع:
+ * تليجرام ⇄ محرك الحالة ⇄ قاعدة البيانات ⇄ سعر MT5 ⇄ API المشتركين
+ *
+ * التشغيل: node index.js
+ */
+
 require('dotenv').config();
 
 const { connectDB } = require('./db/connect');
@@ -60,7 +68,14 @@ async function main() {
 
   await telegramBridge.connect();
   priceFeedServer.start();
-  apiApp.listen(apiPort, () => log(`✅ سيرفر الـ API شغال على المنفذ ${apiPort}`));
+  apiApp.listen(apiPort, () => {
+    log(`✅ سيرفر الـ API شغال على المنفذ ${apiPort}`);
+    if (process.env.AUTO_OPEN_BROWSER !== 'false') {
+      require('open')(`http://localhost:${apiPort}`).catch(() => {
+        log('⚠️ تعذّر فتح المتصفح تلقائيًا - افتحه يدويًا على العنوان اللي فوق');
+      });
+    }
+  });
 
   log('🚀 المشروع شغال بالكامل');
 

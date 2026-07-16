@@ -3,16 +3,29 @@
   "version": "0.1.0",
   "description": "نظام قراءة وتنظيم توصيات الذهب من تليجرام لعرضها كمؤشر شخصي",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
     "test": "node test/runTests.js",
-    "login": "node telegram/sessionLogin.js"
+    "login": "node telegram/sessionLogin.js",
+    "build:dashboard": "cd dashboard && npm install && npm run build",
+    "build:exe": "npm run build:dashboard && pkg . --targets node18-win-x64 --output dist-exe/ahmed-heiken-ashi.exe"
+  },
+  "pkg": {
+    "assets": [
+      "dashboard/dist/**/*",
+      ".env.example"
+    ]
   },
   "dependencies": {
-    "telegram": "^2.22.2",
-    "input": "^1.0.1",
     "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "input": "^1.0.1",
     "mongoose": "^8.9.0",
-    "ws": "^8.18.0",
-    "express": "^4.21.1"
+    "open": "^8.4.2",
+    "telegram": "^2.22.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
   }
 }
